@@ -1,5 +1,27 @@
+{% extends "ecomapps/base.html" %}
+{% load static %}
+{%block content%}
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Create Product</button>
-  </form>
+  </form><form method="post" enctype="multipart/form-data" class="max-w-lg mx-auto">
+    {% csrf_token %}
+    <div class="mb-4">
+        {{ form.name.label }}
+        {{ form.name }}
+    </div>
+    <div class="mb-4">
+        {{ form.price.label }}
+        {{ form.price }}
+    </div>
+    <!-- Add similar blocks for other fields -->
+    <div class="mb-4">
+        {{ form.image.label }}
+        {{ form.image }}
+    </div>
+    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Create Product
+    </button>
+</form>
+{% endblock %}

@@ -1,11 +1,14 @@
+from django import forms
 from django.db import models 
 
 class ProductManager(models.Manager):
-    def filter_by_category_name(self, category_name):
-        return self.get_queryset().filter(category__name=category_name)
+    def category(self, category_name):
+       return super().get_queryset().filter(category__name=category_name)
 
     def get_queryset(self):
+       
         return super().get_queryset().filter(price__gt=2000)
+
 
 
 class Category(models.Model):
@@ -26,6 +29,7 @@ class Product(models.Model):
     qty=models.IntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     custom_objects = ProductManager()
+    objects=models.Manager()
     def __str__(self):
         return self.name
 
@@ -79,7 +83,7 @@ class Discount(models.Model):
     d_percentage=models.IntegerField()
     status=models.CharField(max_length=20)
 
-    
+
     
 
 

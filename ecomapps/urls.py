@@ -10,4 +10,7 @@ urlpatterns = [
    path('create/',views.ProductCreateView.as_view(),name='create'),
    path('price/list/', views.ProductPriceList.as_view(), name='price_list'),
    path('category/list/', views.CategoryList.as_view(), name='category_list'),
+   path('search/',views.SearchView.as_view(),name='search'),
+   path('address/',views.AddressCreateView.as_view(),name='create'),
+    path('form/',views.form_view, name='form'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
