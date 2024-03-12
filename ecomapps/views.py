@@ -4,7 +4,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import *
 from django import forms
-
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from .forms import AddressForm, MyForm, ProductForm
 
 
@@ -83,8 +84,11 @@ class SearchView(ListView):
         context['search_value'] = position
         return context
 
-    def post(self, request, *args, **kwargs):
-        return self.get(request, *args, **kwargs)
+class Signup(CreateView):
+     form_class=UserCreationForm
+     template_name = "registration/signup.html"
+     success_url=reverse_lazy("login")
+   
    
 
    

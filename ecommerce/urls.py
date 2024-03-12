@@ -1,24 +1,13 @@
-"""
-URL configuration for ecommerce project.
+# The views used below are normally mapped in the AdminSite instance.
+# This URLs file is used to provide a reliable view deployment for test purposes.
+# It is also provided as a convenience to those who want to deploy these URLs
+# elsewhere.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import include, path
-app_name='ecomapps'
+from django.contrib.auth import views
+from django.urls import path,include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('ecomapps.urls')),
+    path("",include('ecomapps.urls')),
+    path("accounts/",include("django.contrib.auth.urls")),
+   
 ]

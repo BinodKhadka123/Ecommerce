@@ -19,7 +19,7 @@
             <a class="mr-5 hover:text-gray-900"></a>
             <a class="mr-5 hover:text-gray-900">Fourth Link</a>
           </nav>
-          <form action="{%url 'ecomapps:search'%}" method="post">
+          <form action="{%url 'ecomapps:search'%}" method="get">
             {% csrf_token %}
           <input type="text" name="search" placeholder="Search...">
           
